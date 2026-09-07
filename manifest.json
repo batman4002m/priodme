@@ -1,0 +1,11 @@
+{
+  "name": "پریود من - پیگیری پریود",
+  "short_name": "پریود من",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff7fa",
+  "theme_color": "#f08aa8",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

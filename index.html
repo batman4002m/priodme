@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#e96f9a" />
+  <meta name="description" content="پریود من؛ پیگیری ساده و خصوصی پریود" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>پریود من 🌷</title>
+</head>
+<body>
+<main class="app-shell">
+  <section id="loginView" class="card auth-card">
+    <div class="logo-bubble">🌷</div>
+    <div class="brand">پریود من</div>
+    <h1>خوش اومدی 💗</h1>
+    <p class="muted">یه همراه کوچیک و دوست‌داشتنی برای اینکه تاریخ‌های پریود و روزهای چرخه رو راحت‌تر دنبال کنی.</p>
+    <form id="loginForm" class="stack">
+      <label>نام کاربری<input id="username" autocomplete="username" required /></label>
+      <label>رمز عبور<input id="password" type="password" autocomplete="current-password" required /></label>
+      <button class="primary sound-btn" type="submit">ورود به پریود من ✨</button>
+      <p id="loginError" class="error hidden">نام کاربری یا رمز عبور درست نیست.</p>
+    </form>
+  </section>
+
+  <section id="appView" class="hidden">
+    <header class="topbar">
+      <div><div class="brand small">🌷 پریود من</div><p id="todayText" class="muted"></p></div>
+      <div class="top-actions">
+        <button id="themeToggle" class="theme-toggle sound-btn" type="button" aria-label="تغییر حالت روشن و تاریک" aria-pressed="false" title="تغییر حالت روشن و تاریک">
+          <span class="theme-icon sun-icon" aria-hidden="true">☀</span>
+          <span class="theme-label" id="themeLabel">روشن</span>
+          <span class="theme-icon moon-icon" aria-hidden="true">☾</span>
+        </button>
+        <button id="logoutBtn" class="ghost sound-btn">خروج</button>
+      </div>
+    </header>
+
+    <section class="hero card">
+      <div class="sparkles">✦ ˚｡⋆</div>
+      <div id="statusPill" class="status-pill">هنوز چیزی ثبت نشده</div>
+      <h2 id="mainTitle">از اینجا شروع کنیم؟ 🌸</h2>
+      <p id="mainDescription">روز شروع پریودت رو ثبت کن تا روزها رو برات بشماره و هر روز یه راهنمای کوچیک نشونت بده.</p>
+      <div class="timer-grid">
+        <div><strong id="dayValue">—</strong><span>روز چرخه</span></div>
+        <div><strong id="periodDayValue">—</strong><span>روز پریود</span></div>
+        <div><strong id="nextValue">—</strong><span>تا پریود بعدی</span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h3>📅 ثبت شروع پریود</h3><span class="badge">فقط یک بار در هر چرخه</span></div>
+      <p class="muted small-copy">همون روزی که پریود شروع شد رو یه بار ثبت کن. از همون تاریخ، شمارش روزها و تاریخ پریود بعدی خودش خودکار محاسبه و جلو برده می‌شه.</p>
+      <label>تاریخ شروع<input id="startDateInput" type="date" /></label>
+      <div class="actions two">
+        <button id="startTodayBtn" class="primary sound-btn">امروز شروع شد 🌷</button>
+        <button id="saveDateBtn" class="secondary sound-btn">ثبت این تاریخ</button>
+      </div>
+      <p id="registerStatusText" class="tiny"></p>
+    </section>
+
+    <section class="card appearance-card">
+      <div class="section-title"><h3>🎨 ظاهر برنامه</h3><span class="badge">شخصی‌سازی</span></div>
+      <p class="muted small-copy">حالت نمایش و رنگ مورد علاقه‌ات رو انتخاب کن. انتخابت روی همین دستگاه ذخیره می‌شه.</p>
+      <div class="theme-mode">
+        <button id="lightModeBtn" class="mode-btn sound-btn">☀️ روشن</button>
+        <button id="darkModeBtn" class="mode-btn sound-btn">🌙 تاریک</button>
+      </div>
+      <div class="color-title">رنگ برنامه</div>
+      <div id="colorPalette" class="color-palette" aria-label="انتخاب رنگ برنامه">
+        <button class="color-dot active" data-color="pink" style="--dot:#e96f9a" aria-label="صورتی"></button>
+        <button class="color-dot" data-color="purple" style="--dot:#9b7bea" aria-label="بنفش"></button>
+        <button class="color-dot" data-color="blue" style="--dot:#5c9ee8" aria-label="آبی"></button>
+        <button class="color-dot" data-color="mint" style="--dot:#55bfa5" aria-label="سبز نعنایی"></button>
+        <button class="color-dot" data-color="orange" style="--dot:#ed9a5c" aria-label="نارنجی"></button>
+        <button class="color-dot" data-color="rose" style="--dot:#dc6c83" aria-label="رز"></button>
+      </div>
+    </section>
+
+    <section class="card next-date-card">
+      <div class="section-title"><h3>🌙 پریود بعدی</h3><span class="badge">خودکار</span></div>
+      <p class="muted small-copy">این تاریخ خودش از روی تاریخ شروع آخرین پریود و طول چرخه محاسبه می‌شه؛ نیازی به وارد کردن دستی نیست. وقتی موعدش برسه، ازت می‌پرسم «پریود شدی؟»</p>
+      <p id="nextDateInfo" class="tiny"></p>
+    </section>
+
+    <section class="card suggestion-card">
+      <div class="section-title"><h3>💌 حرف امروز پریود من</h3><span id="suggestionBadge" class="badge">روز خاص</span></div>
+      <div class="cute-icon" id="suggestionIcon">🌸</div>
+      <h4 id="suggestionTitle">یه روز آروم برای خودت بساز</h4>
+      <p id="suggestionText">روزت رو انتخاب کن تا پریود من راهنمای همون روز رو نشونت بده.</p>
+    </section>
+
+        <section class="card">
+      <div class="section-title"><h3>⚙️ تنظیمات چرخه</h3><span class="badge">قابل تغییر</span></div>
+      <div class="settings-grid">
+        <label>مدت پریود (روز)<input id="periodLength" type="number" min="1" max="10" value="7" /></label>
+        <label>طول چرخه (روز)<input id="cycleLength" type="number" min="20" max="45" value="28" /></label>
+      </div>
+      <button id="saveSettingsBtn" class="secondary full sound-btn">ذخیره تنظیمات</button>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h3>🔔 یادآوری‌ها</h3><span class="badge">اعلان</span></div>
+      <p id="notificationStatus" class="muted"></p>
+      <button id="enableNotificationsBtn" class="primary full sound-btn">فعال کردن اعلان‌ها 🔔</button>
+      <p class="tiny">اعلان وب روی بعضی گوشی‌ها فقط وقتی برنامه یا مرورگر اجازه فعالیت داشته باشد نمایش داده می‌شود. هر بار که برنامه باز شود، تاریخ‌ها دوباره بررسی می‌شوند.</p>
+    </section>
+
+    <section id="lateCard" class="card warning hidden">
+      <div class="cute-icon">👀</div>
+      <h3>خب... پریود شدی؟</h3>
+      <p id="lateText"></p>
+      <div class="actions two">
+        <button id="periodStartedBtn" class="primary sound-btn">آره، شروع شد 🌷</button>
+        <button id="notYetBtn" class="secondary sound-btn">نه، هنوز نه</button>
+      </div>
+    </section>
+
+    <section class="card history-card">
+      <div class="section-title"><h3>📅 تاریخ‌های چرخه</h3><button id="clearHistoryBtn" class="text-btn sound-btn">پاک کردن</button></div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+    <section class="card danger-zone">
+      <h3>🗑️ پاک کردن تمام داده‌ها</h3>
+      <p class="muted">همه تاریخ‌های چرخه و تنظیمات ذخیره‌شده روی همین مرورگر پاک می‌شن.</p>
+      <button id="clearAllBtn" class="danger full sound-btn">پاک کردن همه داده‌ها</button>
+    </section>
+
+    <footer><p>پریود من فقط ابزار ثبت و یادآوریه و جای تشخیص پزشکی نیست. اگر درد خیلی شدید، خونریزی غیرعادی، غش یا نگرانی جدی وجود داره، کمک پزشکی بگیر.</p></footer>
+  </section>
+</main>
+<div id="toast" class="toast hidden"></div>
+<script src="firebase-config.js"></script>
+<script type="module" src="push-client.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

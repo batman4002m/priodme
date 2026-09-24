@@ -75,8 +75,6 @@ els.loginForm.addEventListener('submit',async e=>{
   const password=els.password.value;
   const existing=getUser();
   els.loginError.classList.add('hidden');
-  if(username.length<3){els.loginError.textContent='نام کاربری باید حداقل ۳ کاراکتر باشد.';els.loginError.classList.remove('hidden');return;}
-  if(password.length<4){els.loginError.textContent='رمز عبور باید حداقل ۴ کاراکتر باشد.';els.loginError.classList.remove('hidden');return;}
   const hash=await hashPassword(password);
   if(!existing){
     localStorage.setItem(STORE.user,JSON.stringify({username,passwordHash:hash}));

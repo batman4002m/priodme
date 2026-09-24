@@ -14,12 +14,14 @@
   <section id="loginView" class="card auth-card">
     <div class="logo-bubble">🌷</div>
     <div class="brand">پریود من</div>
-    <h1>خوش اومدی 💗</h1>
-    <p class="muted">یه همراه کوچیک و دوست‌داشتنی برای اینکه تاریخ‌های پریود و روزهای چرخه رو راحت‌تر دنبال کنی.</p>
+    <h1 id="authTitle">خوش اومدی 💗</h1>
+    <p id="authDescription" class="muted">با نام کاربری و رمز عبوری که قبلاً ساختی وارد شو.</p>
     <form id="loginForm" class="stack">
       <label>نام کاربری<input id="username" autocomplete="username" required /></label>
       <label>رمز عبور<input id="password" type="password" autocomplete="current-password" required /></label>
-      <button class="primary sound-btn" type="submit">ورود به پریود من ✨</button>
+      <button id="authSubmit" class="primary sound-btn" type="submit">ورود به پریود من ✨</button>
+      <button id="switchAuthBtn" class="secondary sound-btn hidden" type="button">ساخت حساب جدید</button>
+      <p id="authHint" class="tiny"></p>
       <p id="loginError" class="error hidden">نام کاربری یا رمز عبور درست نیست.</p>
     </form>
   </section>
